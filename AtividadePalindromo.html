@@ -1,0 +1,31 @@
+<!doctype html>
+<body>
+
+    
+    <label for="p">Palindromo: </label>
+    <input type="text" id="p" name="p">
+    <button type="submit" id="verificar">Verificar</button>
+
+<script type="text/Javascript">
+
+    document.getElementById('verificar').addEventListener('click', function(){
+        let palindromo = "";
+        let palavra = document.getElementById('p').value;
+        for (let i = palavra.Length -1; i>= 0; i--){
+            palindromo += palavra.charAt(i);
+            console.log(palindromo);
+        }
+        if (palindromo == palavra){
+            alert('E um palindromo');
+        }
+        else {
+            alert('Não é um palindromo');
+        }
+     
+    });
+
+</script>
+
+
+</body>
+</html>
