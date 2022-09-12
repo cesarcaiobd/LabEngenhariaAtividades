@@ -32,12 +32,75 @@
             this.getMarca = function(){
                 return this.marca;
             }
-        }
+
+            this.setModelo = function(vModelo){
+                this.modelo = vModelo;
+            }
+            this.getModelo = function(){
+                return this.modelo;
+            }
+
+            this.setAno = function(vAno){
+                this.ano = vAno;
+            }
+            this.getAno = function(){
+                return this.ano;
+            }
+
+            this.setCor = function(vCor){
+                this.cor = vCor;
+            }
+            this.getCor = function(){
+                return this.cor;
+            }
+
+            this.setKilometragem = function(vKilometragem){
+                this.kilometragem = vKilometragem;
+            }
+            this.getKilometragem = function(){
+                return this.kilometragem;
+            }
+
+            this.setValor_fipe = function(vValor_fipe){
+                this.valor_fipe = vValor_fipe;
+            }
+            this.getValor_fipe = function(){
+                return this.valor_fipe;
+            }
+
+        function anosUtilizacao(){
+            let data = new Date();
+            //options = {year:'numeric'};
+            //return data.toLocateDateString('pt-BR', options) - ano;
+            let anoAtual = data.getFullYear();
+            return anoAtual - ano;
+            }
+
+        function valorMercado(){
+            let kilometragemPorAno = kilometragem / anosUtilizacao();
+            let x = document.getElementById('valor_fipe').value;
+            if (kilometragemPorAno < 30000) return x * 1.1;
+            else if (kilometragemPorAno > 50000) return x * 0.9;
+            else return valor_fipe;
+
+            }
+        };
                         
         document.getElementById('btn').addEventListener('click', function(){
             let carro = new Carro();
             carro.setMarca(document.getElementById('marca').value);
+            carro.setModelo(document.getElementById('modelo').value);
+            carro.setAno(document.getElementById('ano').value);
+            carro.setCor(document.getElementById('cor').value);
+            carro.setKilometragem(document.getElementById('kilometragem').value);
+            //carro.setValor_fipe(document.getElementById('Valor_fipe').value);
+            carro.setValor_fipe(valorMercado());
             console.log(carro.getMarca());
+            console.log(carro.getModelo());
+            console.log(carro.getAno());
+            console.log(carro.getCor());
+            console.log(carro.getKilometragem());
+            console.log(carro.getValor_Fipe());
             
             /*
             let carro = {
